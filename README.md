@@ -117,3 +117,8 @@ window.addEventListener('load', function() {
 ```
 
 このようにテンプレートを定義して，利用したいページから読み込むことにより，デザインの統一が容易になったり，スニペットの再利用がしやすくなるなどの利点があります．
+
+## Reference
+[HTML Imports](http://www.html5rocks.com/ja/tutorials/webcomponents/imports/)
+[HTML Imports - W3C](https://www.w3.org/TR/html-imports/)
+[Web標準だけでHTMLを部品化するWeb Componentsを試してみる - albatrosary's blog](http://albatrosary.hateblo.jp/entry/2014/07/23/221839)
