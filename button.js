@@ -33,7 +33,7 @@ window.addEventListener('load', function() {
   for( x of shadow ) {
     var y = x.createShadowRoot();
     console.log( x );
-    y.appendChild( clone );
+    y.appendChild( clone.cloneNode(true) );
     new GUI( y );
   }
   //shadow.appendChild(clone);
