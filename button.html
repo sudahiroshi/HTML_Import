@@ -1,10 +1,27 @@
 <head>
   <script type="text/javascript" src="button.js"></script>
+
 </head>
 <body>
-  <template id="test-template">
-    <p>周波数</p>
-    <button id="dec">小さくする</button>
-    <button id="inc">大きくする</button>
+  <template>
+    <style>
+    .button-temp {
+      height: 50px;
+      width: 90px;
+      background-color: #fffff0;
+      box-shadow:2px 2px #555;
+      border-radius: 5px;
+    }
+    #button-div {
+      width: 200px;
+      height: 100px;
+      background-color: #f0fff0;
+    }
+    </style>
+    <div id="button-div">
+      <p>周波数</p>
+      <button id="dec" class="button-temp">小さくする</button>
+      <button id="inc" class="button-temp">大きくする</button>
+    </div>
   </template>
 </body>
