@@ -33,9 +33,12 @@ class Graph {
     this.ctx.stroke();
   }
 }
-
+console.log( document.currentScript.src ) ;
+console.log( document.currentScript.ownerDocument ) ;
 window.addEventListener('load', function() {
-  var link = document.querySelector("#graph").import;
+  console.log( document.currentScript ) ;
+  //var link = document.querySelector("#graph").import;
+  var link = document.querySelector("link[href='graph.html']").import;
   var template = link.querySelector('template');
   var clone = document.importNode( template.content, true );
   var shadow = document.querySelectorAll('x-graph');
