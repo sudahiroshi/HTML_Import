@@ -13,6 +13,7 @@ class Graph {
     nl.on( 'inc', ( key, params ) => {
       this.freq += 0.1;
       console.log("inc - freq = " + this.freq );
+      //console.log( drawGraph );
       this.drawGraph();
     });
   }
@@ -23,26 +24,35 @@ class Graph {
     this.ctx.fill();
 
     this.ctx.beginPath();
-    this.ctx.moveTo( 0, this.elm.height/2 );
+    var center = this.elm.height/2;
+    this.ctx.moveTo( 0, center );
     for( var i=0; i<=this.elm.width; i++ ) {
-      var y = Math.sin( Math.PI/180. * i / this.elm.width * 360. * this.freq);
-      this.ctx.lineTo( i, y );
+      var y = Math.sin( Math.PI/180. * i / this.elm.width * 360. * this.freq) * 100;
+      this.ctx.lineTo( i, y + center );
     }
     this.ctx.stroke();
-
   }
 }
 
 window.addEventListener('load', function() {
   var link = document.querySelector("#graph").import;
-  var content = link.querySelector('template').content;
-  var dest = document.querySelectorAll('x-graph');
-  for( x of dest ) {
-    x.appendChild(content.cloneNode(true));
+  var template = link.querySelector('template');
+  var clone = document.importNode( template.content, true );
+  var shadow = document.querySelectorAll('x-graph');
+  for( x of shadow ) {
+    x.createShadowRoot().appendChild( clone.cloneNode(true) );
+    var element = x.shadowRoot.querySelector('#sim-graph');
+    console.log( element );
+    var g = new Graph( element );
+    g.drawGraph();
   }
 
-  var element = content.querySelector('#sim-graph');
-  var g = new Graph( element );
-  g.drawGraph();
+  // var link = document.querySelector("#graph").import;
+  // var template = link.querySelector('template');
+  // var content = template.content;
+  // var dest = document.querySelectorAll('x-graph');
+  // for( x of dest ) {
+  //   x.appendChild(content.cloneNode(true));
+  // }
 
 });

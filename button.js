@@ -9,10 +9,6 @@ class GUI {
     content.querySelector('#inc').addEventListener('click', function() {
       nl.emit( 'inc', null );
     });
-
-    var dummy = content.querySelector('#dec');
-    dummy.addEventListener('click', () => { console.log("test");});
-    console.log( "aaa ->" + dummy );
   }
 }
 
@@ -32,15 +28,10 @@ window.addEventListener('load', function() {
   var shadow = document.querySelectorAll('x-input');
   for( x of shadow ) {
     var y = x.createShadowRoot();
-    console.log( x );
+    //console.log( x );
     y.appendChild( clone.cloneNode(true) );
     new GUI( y );
   }
   //shadow.appendChild(clone);
   //console.log(shadow);
-
-
-
-
-
 });
